@@ -1,6 +1,7 @@
 package guru.springframework.spring5webapp.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -10,9 +11,9 @@ public class Author {
     private Long id;
     private String firstName;
     private String lastName;
-    private Set<Book> books;
 
     @ManyToMany(mappedBy = "authors")
+    private Set<Book> books = new HashSet<>();
     public Set<Book> getBooks() {
         return books;
     }
